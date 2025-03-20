@@ -10,8 +10,8 @@ function createSundayBriefing() {
   showCalendar(body)// Show Calendar
 
   showImportantCalendar(body)
-
-const apiUrl = `https://financialmodelingprep.com/api/v3/sectors-performance?apikey=gSOjOlVCxDOXk1vkOzHSYpx7GP21DCwV`;
+  const apiKey = process.env.NEWS_API_KEY;
+const apiUrl = `https://financialmodelingprep.com/api/v3/sectors-performance?apikey=${apiKey}`;
 
 const response = UrlFetchApp.fetch(apiUrl);
 const earningsData = JSON.parse(response.getContentText());
