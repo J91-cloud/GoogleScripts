@@ -40,14 +40,10 @@ Inside your project please add these necessary scopes:
 </p>
 
 
-
-
-
-
-
-
 ## WeeklyBriefing
-This is the brieding i use for every week day. In order to follow my code you need to first creat
+This is the briefing i use for every weekday. The briefing consits of a cover page displaying the date , and day of the week. The next pages display my schedule for the day. 
+To then countinue you need to make sure in your gmail account you have a label for `ForeignNews` and `NewsBriefing`. 
+The code is instructed to take the first 3 artciels of your label by slicing the array. 
 
 
 
