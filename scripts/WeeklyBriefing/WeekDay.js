@@ -1,8 +1,10 @@
 function createPdfWithNews() {
+
+  
   
   const nationalNewsLabel = "ForeignNews"; 
   const query2 = `label:${nationalNewsLabel}`;
-  // const apiKey = "pub_60169902100bf57f98bc647a4e4129f09d5a0";
+  const apiKey = process.env.NEWS_API_KEY;
   const newsApiUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&language=en`;
 
   
@@ -30,14 +32,14 @@ function createPdfWithNews() {
 
   body.appendPageBreak(); // Page break after the header
 
-  showCalendar(body)//Show Calendar
+  showCalendar(body)
 
   body.appendPageBreak();
 
   
 
 
-  getGeneralNews(body)//show 3 emails
+  getGeneralNews(body)
 
   const header2 = body.appendParagraph("Foreign News");
   header2.setHeading(DocumentApp.ParagraphHeading.TITLE);
@@ -118,8 +120,8 @@ function createPdfWithNews() {
   cell2.appendParagraph("More details on the right.");
 
   // Style the table (optional)
-  table.setBorderWidth(0); // Remove table borders for a cleaner look
-  table.setPadding(10); // Add some padding around cell content
+  table.setBorderWidth(0); 
+  table.setPadding(10); 
 
   
 
@@ -347,7 +349,8 @@ const threads = GmailApp.search(query1, 0, 3);
 
 
 function getTopGainersStock(body) {
-  const stockApiUrl = 'https://api.stockapi.io/top-gainers?apikey=gSOjOlVCxDOXk1vkOzHSYpx7GP21DCwV'; // Replace with actual API URL and API key
+  const stockApiKey = process.env.API_KEY;// Add your own API Key
+  const stockApiUrl = `https://api.stockapi.io/top-gainers?apikey=${stockApiKey}`; // Replace with actual API URL and API key
 
   try {
     // Fetch stock data from the API
